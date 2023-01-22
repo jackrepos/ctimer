@@ -1,0 +1,29 @@
+.sidebar {
+  width: 80px;
+}
+
+.main {
+  width: 300px;
+  margin-left: 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main > .card {
+  background: transparent;
+  border: none;
+}
+
+.main > .card .card-header,
+.main > .card .card-body,
+.main > .card .card-footer {
+  border: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  body { background: #2F384B; color: white; }
+}
+
+@media (prefers-color-scheme: light) {
+  body { background: #ddd; color: black; }
+}

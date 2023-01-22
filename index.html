@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>CTimer</title>
+
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 position-fixed bg-dark sidebar">
+                <div class="flex-column flex-shrink-0 vh-100">
+                    <ul class="nav nav-pills flex-column mb-auto text-center">
+                        <li class="nav-item">
+                            <button id="reset" class="nav-link py-3 border-bottom rounded-0" title="Reset">
+                                <i class="bi-clock"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="reset-to-system" class="nav-link py-3 border-bottom rounded-0" title="Reset Theme">
+                                <i class="bi-gear"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="toggle-dark-mode" class="nav-link py-3 border-bottom rounded-0" title="Toggle Dark Mode">
+                                <i class="bi-palette-fill"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-xs-9 col-sm-9 main">
+                <div class="card text-center">
+                    <div class="card-header">
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary" type="button" id="btn-submit"><i class="bi-arrow-bar-down"></i></button>
+                            <input type="number" min="1" class="form-control i-time" placeholder="5 min" value="1">
+                            <button type="button" class="btn btn-outline-secondary btn-time" data-time="5">5</button>
+                            <button type="button" class="btn btn-outline-secondary btn-time" data-time="5">10</button>
+                            <button type="button" class="btn btn-outline-secondary btn-time" data-time="5">15</button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text clock-body">clock content</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="btn-group" role="group" aria-label="Basic outlined example">
+                            <button type="button" class="btn btn-outline-secondary" id="btn-start">start</button>
+                            <button type="button" class="btn btn-outline-secondary">pause</button>
+                            <button type="button" class="btn btn-outline-secondary" id="btn-reset">reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <!-- <script src="./assets/bootstrap.bundle.min.js"></script> -->
+    <script src="./renderer.js"></script>
+</body>
+
+</html>

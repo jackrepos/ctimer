@@ -1,0 +1,26 @@
+{
+  "name": "ctimer",
+  "version": "1.0.0",
+  "description": "Simple timer app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackrepos/ctimer.git"
+  },
+  "author": "jack",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackrepos/ctimer/issues"
+  },
+  "homepage": "https://github.com/jackrepos/ctimer#readme",
+  "devDependencies": {
+    "electron": "^22.0.3"
+  },
+  "dependencies": {
+    "sound-play": "^1.1.0"
+  }
+}
