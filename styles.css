@@ -1,5 +1,15 @@
+@font-face {
+  font-family: Digital-7;
+  src: url(assets/fonts/digital-7.ttf);
+}
+
 .sidebar {
   width: 80px;
+  -webkit-app-region: drag;
+}
+.sidebar button {
+  -webkit-app-region: no-drag;
+  color: #05EB8B;
 }
 
 .main {
@@ -18,6 +28,12 @@
 .main > .card .card-body,
 .main > .card .card-footer {
   border: none;
+}
+
+.clock-body {
+  color: #05EB8B;
+  font-family: Digital-7;
+  font-size: 4rem;
 }
 
 @media (prefers-color-scheme: dark) {

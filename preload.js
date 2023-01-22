@@ -7,8 +7,9 @@ contextBridge.exposeInMainWorld('darkMode', {
   system: () => ipcRenderer.invoke('dark-mode:system')
 })
 
-contextBridge.exposeInMainWorld('media', {
-  sing: () => ipcRenderer.invoke('media:sing')
+contextBridge.exposeInMainWorld('action', {
+  quit: () => ipcRenderer.invoke('action:quit'),
+  minimize: () => ipcRenderer.invoke('action:minimize')
 })
 
 // All the Node.js APIs are available in the preload process.

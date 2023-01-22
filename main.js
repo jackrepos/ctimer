@@ -3,21 +3,34 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain, nativeTheme } = require('electron')
 const path = require('path')
-const sound = require("sound-play")
 
 // TO hide message "Passthrough is not supported"
 app.disableHardwareAcceleration()
 
+var mainWindow = null
+
 const createWindow = () => {
 
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  mainWindow = new BrowserWindow({
+    // center: true,
+    frame: false,
+    // titleBarStyle: 'hidden',
+    // titleBarOverlay: {
+    //   color: '#2f3241',
+    //   symbolColor: '#74b1be',
+    //   height: 60
+    // },
     width: 400,
     height: 500,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+
+  // mainWindow.removeMenu()
+  mainWindow.autoHideMenuBar = true
+  mainWindow.menuBarVisible = false
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
@@ -40,12 +53,13 @@ const createWindow = () => {
   ipcMain.handle('dark-mode:dark', () => {
     nativeTheme.themeSource = 'dark'
   })
-
-  ipcMain.handle('media:sing', () => {
-    const filePath = path.join(__dirname, "assets/Alarm02.wav")
-    sound.play(filePath)
-    // console.log('media:sing')
+  ipcMain.handle('action:quit', () => {
+    app.quit()
   })
+  ipcMain.handle('action:minimize', () => {
+    mainWindow.minimize()
+  })
+
 }
 
 // This method will be called when Electron has finished
@@ -66,6 +80,14 @@ app.whenReady().then(() => {
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
+})
+
+app.on('second-instance', () => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore()
+    mainWindow.focus()
+  }
 })
 
 // In this file you can include the rest of your app's specific main process
