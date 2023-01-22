@@ -14,6 +14,7 @@ const createWindow = () => {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     // center: true,
+    icon: path.join(__dirname, '/assets/watch.ico'),
     frame: false,
     // titleBarStyle: 'hidden',
     // titleBarOverlay: {
